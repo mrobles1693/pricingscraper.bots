@@ -1,6 +1,7 @@
 import requests
 import json
-from ApiResponse import ApiResponse
+
+from Service.ApiResponse import ApiResponse
 
 _urlBase = 'https://rspricingscraper.azurewebsites.net/api/BotRs/'
 _apiresp = ApiResponse()
