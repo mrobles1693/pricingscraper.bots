@@ -1,5 +1,6 @@
 import requests
 import json
+from DTO.RegistroPrecioDTO import RegistroPrecioDTO
 
 from Service.ApiResponse import ApiResponse
 
@@ -16,9 +17,9 @@ def getListSimilar():
     response = requests.get(url=urlReq)
     return _apiresp.from_json(response.json())
 
-def insRegistroPrecio(registroPrecio):
+def insRegistroPrecio(registroPrecio : RegistroPrecioDTO):
     urlReq = _urlBase + 'postInsRegistroPrecio'
-    response = requests.post(url=urlReq, data=json.dumps(registroPrecio))
+    response = requests.post(url=urlReq, json=json.loads(registroPrecio.to_json()))
     return _apiresp.from_json(response.json())
 
 def finBotExecution(nIdBotExecution):

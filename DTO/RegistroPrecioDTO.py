@@ -33,7 +33,6 @@ class RegistroPrecioDTO:
             'nPrecio' : self.nPrecio,
             'nPrecioOferta' : self.nPrecioOferta,
             'nPrecioTarjeta' : self.nPrecioTarjeta,
-            'dFecha' : None
             }
         return json.dumps(jsonString)
     

@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -6,7 +7,7 @@ from selenium.webdriver.common.by import By
 class wsBase:
 
     @abstractmethod
-    def BusquedaEspecifica(similar, webDriver):
+    def BusquedaEspecifica(similar, webDriver : webdriver.Firefox):
         pass
     
     def initWebDrivers(self, url, waitTime, webDriver):
@@ -15,30 +16,30 @@ class wsBase:
         self.wdPrincipal.maximize_window()
         self.wdPrincipal.get(url)
 
-    def existeElemento(driver, by, valor):
+    def existeElementoWD(self, driver : webdriver.Firefox, by, valor):
         try:
             driver.find_element(by, valor)
             return True
         except:
             return False
         
-    def existeElemento(webElement, by, valor):
+    def existeElementoWE(self, webElement, by, valor):
         try:
             webElement.find_element(by, valor)
             return True
         except:
             return False
         
-    def existeElemento(wait, by, valor):
+    def existeElementoWT(self, wait, by, valor):
         try:
             wait.until(EC.presence_of_element_located((by, valor)))
             return True
         except:
             return False
     
-    def existeElemento(wd, tiempo, by, valor):
+    def existeElementoWDT(self, driver : webdriver.Firefox, tiempo, by, valor):
         try:
-            wait = WebDriverWait(wd, tiempo)
+            wait = WebDriverWait(driver, tiempo)
             wait.until(EC.presence_of_element_located((by, valor)))
             return True
         except:

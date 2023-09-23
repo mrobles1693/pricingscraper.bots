@@ -21,7 +21,7 @@ if __name__ == '__main__':
             for d in res.data:
                 similar = SimilarDTO().from_json(d)
                 if(similar.nIdComercio == 1):
-                    wsTottus().BusquedaEspecifica(similar=similar, webDriver=wdp)
+                    wsTottus().BusquedaEspecifica(similar=similar, webDriver=wdp, nIdExecutionBot=nIdExecutionBot)
                 if(similar.nIdComercio == 2):
                     wsPlazaVea().BusquedaEspecifica(similar=similar, webDriver=wdp)
                 if(similar.nIdComercio == 3):
