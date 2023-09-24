@@ -32,16 +32,17 @@ class wsWong(wsBase):
             ):
             precio = webDriver.find_element(By.XPATH,'/html/body/div[2]/div/div[1]/div/div/div/div[2]/div/div[4]/div[3]/section/div/div[2]/div/div[8]/span/span/span').text.split('/')[1].replace(',','')
 
-        registroPrecio = RegistroPrecioDTO(
-            nIdBotExecution=nIdExecutionBot
-            ,nIdSimilar=similar.nIdSimilar
-            ,nIdComercio=similar.nIdComercio
-            ,nIdProducto=similar.nIdProducto
-            ,nPrecio= float(precio.replace('S/ ','')) if precio != '' else None
-            ,nPrecioOferta= float(precioO.replace('S/ ','')) if precioO != '' else None
-            ,nPrecioTarjeta= float(precioT.replace('S/ ','')) if precioT != '' else None
-            ,dFecha=None
-            ,nIdRegistroPrecio=None
-        )
+        if(precio != ''):
+            registroPrecio = RegistroPrecioDTO(
+                nIdBotExecution=nIdExecutionBot
+                ,nIdSimilar=similar.nIdSimilar
+                ,nIdComercio=similar.nIdComercio
+                ,nIdProducto=similar.nIdProducto
+                ,nPrecio= float(precio.replace('S/ ','')) if precio != '' else None
+                ,nPrecioOferta= float(precioO.replace('S/ ','')) if precioO != '' else None
+                ,nPrecioTarjeta= float(precioT.replace('S/ ','')) if precioT != '' else None
+                ,dFecha=None
+                ,nIdRegistroPrecio=None
+            )
 
-        res = RestServiceClient.insRegistroPrecio(registroPrecio=registroPrecio)
+            res = RestServiceClient.insRegistroPrecio(registroPrecio=registroPrecio)
