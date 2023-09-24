@@ -39,5 +39,4 @@ class wsTottus(wsBase):
         )
 
         res = RestServiceClient.insRegistroPrecio(registroPrecio=registroPrecio)
-        print(res)
         
