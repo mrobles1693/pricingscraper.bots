@@ -25,7 +25,7 @@ if __name__ == '__main__':
                 if(similar.nIdComercio == 2):
                     wsPlazaVea().BusquedaEspecifica(similar=similar, webDriver=wdp, nIdExecutionBot=nIdExecutionBot)
                 if(similar.nIdComercio == 3):
-                    wsVivanda().BusquedaEspecifica(similar=similar, webDriver=wdp)
+                    wsVivanda().BusquedaEspecifica(similar=similar, webDriver=wdp, nIdExecutionBot=nIdExecutionBot)
                 if(similar.nIdComercio == 4):
                     wsWong().BusquedaEspecifica(similar=similar, webDriver=wdp)
 
