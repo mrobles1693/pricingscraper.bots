@@ -19,6 +19,7 @@ if __name__ == '__main__':
             wdp = webdriver.Firefox()
 
             for d in res.data:
+                wdp.get('https://www.google.com')
                 similar = SimilarDTO().from_json(d)
                 if(similar.nIdComercio == 1):
                     wsTottus().BusquedaEspecifica(similar=similar, webDriver=wdp, nIdExecutionBot=nIdExecutionBot)
